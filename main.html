@@ -1,0 +1,81 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="./index.css" />
+    <title>Main</title>
+</head>
+<body>
+    <div id="menu">
+        <div>
+            <a href="./work.html">Work</a>
+            <a href="./projects.html">Projects</a>
+            <a href="./skills.html">Skills</a>
+            <a href="./contact.html">Contact</a>
+        </div>
+        <div class="mobile">
+            <div>
+                <a href="./work.html">Work</a>
+                <a href="./projects.html">Projects</a>
+                <a href="./skills.html">Skills</a>
+                <a href="./contact.html">Contact</a>
+                <img src="./src/menu-img.svg" />
+            </div>
+            <img id="menu-icon" onclick="handleMenu()" src="/src/open-menu-icon.svg"/>
+        </div>
+    </div>
+    <main id="main-container">
+        <img onclick="setStyles()" src="/src/profile-icon.svg" />
+        <h2>Arushi Chauhan</h2>
+        <p>Design Lover,<br/>Currently @ ByteDance</p>
+    </main>
+    <script>
+        
+        function setStyles(){
+            $("#main-container").html(`
+                <img onclick="reserStyles()" src="/src/profile-icon.svg" />
+                <p>Hi! My name is Arushi and<br />welcome to my prototype resume!</p>
+
+                <p>I want to create products that<br/>create impact.</p>
+
+                <p>Hit me up to talk about your<br />favorite products or for any<br/>product design help!</p>
+            `)
+
+            $("#main-container").css("background-color", "black");
+            $("#main-container p").css("color", "white");
+
+            $("#menu").css("background-color", "black");
+            $("#menu div a").css("color", "white");
+        }
+        
+        
+        function reserStyles() {
+            $("#main-container").html(`
+                <img onclick="setStyles()" src="/src/profile-icon.svg" />
+                <h2>Arushi Chauhan</h2>
+                <p>Design Lover,<br/>Currently @ ByteDance</p>
+            `)
+
+            $("#main-container").css("background-color", "white");
+            $("#main-container p").css("color", "black");
+
+            $("#menu").css("background-color", "white");
+            $("#menu div a").css("color", "black");
+        }
+
+        let isMenuOpen = false;
+
+        function handleMenu() {
+            if (isMenuOpen) {
+                $("#menu-icon").attr("src","/src/open-menu-icon.svg");
+                $("#menu .mobile div").css("display", "none");
+                isMenuOpen = false;
+            } else {
+                $("#menu-icon").attr("src","/src/close-menu-icon.svg");
+                $("#menu .mobile div").css("display", "flex");
+                isMenuOpen = true;
+            }
+        }
+    </script>
+</body>
+</html>
